@@ -36,3 +36,16 @@ The script requires the `dplyr` library for data manipulation. You can install i
 ```R
 install.packages("dplyr")
 
+Running the Script:
+1.) Download the dataset from the following link: Human Activity Recognition Dataset.
+2.) Unzip the dataset and place it in your working directory.
+3.) Download and run the run_analysis.R script.
+4.) The script will generate a tidy data set, saved as tidy_data.txt.
+
+### Expected Output:
+The final output is a tidy data set that contains the average of each variable for each subject and activity. This tidy dataset will be saved as tidy_data.txt in the working directory. The dataset contains the following columns:
+Subject: The identifier of the subject who performed the activity.
+Activity: The activity label (e.g., WALKING, STANDING).
+Columns corresponding to the mean and standard deviation measurements for each feature.
+
+
