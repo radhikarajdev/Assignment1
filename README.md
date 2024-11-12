@@ -1,51 +1,63 @@
-# Assignment1
-# Human Activity Recognition Data Analysis
+## Peer-Graded Assignment: Getting and Cleaning Data Course Project
 
-## Introduction
+### Project Overview
 
-This repository contains an analysis of the "Human Activity Recognition Using Smartphones" dataset. The data was collected from a group of 30 volunteers performing six activities (e.g., WALKING, STANDING, LAYING) while wearing a Samsung Galaxy S II smartphone. The dataset includes sensor data from accelerometers and gyroscopes and provides information on various body movements.
+This project showcases the ability to collect, manipulate, and clean a dataset, fulfilling specific academic criteria. 
+The evaluation will focus on the tidiness of the dataset, the presence of required scripts in a GitHub repository, the comprehensiveness of a codebook, and the clarity of the README file.
 
-The goal of the analysis is to demonstrate the ability to collect, clean, and manipulate data for later use in analysis. Specifically, we will combine training and test data, extract relevant features, and generate a tidy dataset that provides insights into the relationship between physical activity and sensor measurements.
+### Project Objectives
 
-The dataset and project were inspired by the work of Anguita et al. (2012) in the field of human activity recognition.
+The objective of this project is to prepare tidy data for subsequent analysis. The tasks include:
 
-## Objectives
+1. Merging training and test datasets into a single dataset.
+2. Extracting measurements that reflect the mean and standard deviation.
+3. Using descriptive names for activities in the dataset.
+4. Appropriately labeling the dataset with clear variable names.
+5. Creating an independent tidy dataset that averages each variable for each activity and subject.
 
-The primary objective of this analysis is to prepare a tidy dataset that can be used for further analysis or modeling. The steps performed include:
+### Data Source
 
-1. Merging the training and test data sets.
-2. Extracting measurements on the mean and standard deviation for each measurement.
-3. Using descriptive activity names to name the activities.
-4. Appropriately labeling the data set with descriptive variable names.
-5. Creating a second tidy data set that contains the average of each variable for each activity and each subject.
+The project utilizes data collected from the accelerometers of Samsung Galaxy S smartphones, which can be accessed through the following link: [Human Activity Recognition Using Smartphones](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
 
-## Script: `run_analysis.R`
+The dataset can be downloaded from: [Dataset Download](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip).
 
-The `run_analysis.R` script performs the following steps:
+### Script Requirements
 
-1. **Data Merging**: Combines the training and test data into one dataset.
-2. **Feature Selection**: Extracts measurements on the mean and standard deviation.
-3. **Activity Labeling**: Labels the activities with descriptive names.
-4. **Variable Labeling**: Assigns descriptive variable names to the data.
-5. **Data Aggregation**: Creates a tidy dataset with the average of each variable for each activity and each subject.
+An R script named `run_analysis.R` must be created to perform the following steps:
 
-### Required Libraries
+1. Combine training and test sets into a single dataset.
+2. Filter only the measurements that correspond to the mean and standard deviation for each measurement.
+3. Assign descriptive activity names to the dataset.
+4. Label the dataset with clear variable names.
+5. Generate a second tidy dataset that contains the average of each variable grouped by activity and subject.
 
-The script requires the `dplyr` library for data manipulation. You can install it by running:
+### Steps to Create Tidy Data
 
-```R
-install.packages("dplyr")
+1. **Data Acquisition**: Download the raw dataset and unzip the files to a specified working directory.
+2. **Executing the Script**: To run the script in RStudio, use the following commands:
+   ```R
+   source("run_analysis.R")  # Load the script
+   run_analysis()             # Execute the script
+   ```
 
-Running the Script:
-1.) Download the dataset from the following link: Human Activity Recognition Dataset.
-2.) Unzip the dataset and place it in your working directory.
-3.) Download and run the run_analysis.R script.
-4.) The script will generate a tidy data set, saved as tidy_data.txt.
+3. **Step Breakdown in `run_analysis.R`**:
+   - **Step 1**: Merge training and test datasets (e.g., `X_train.txt`, `y_train.txt`, `subject_train.txt`).
+   - **Step 2**: Extract measurements related to the mean and standard deviation using the `grep` function.
+   - **Step 3**: Map descriptive activity names to a new column in the dataset.
+   - **Step 4**: Label the dataset accurately, producing a clean data frame called `cleandata`.
+   - **Step 5**: Create a tidy dataset that averages the measurements for each activity and subject, outputting to `tidyDataSet.txt`.
 
-### Expected Output:
-The final output is a tidy data set that contains the average of each variable for each subject and activity. This tidy dataset will be saved as tidy_data.txt in the working directory. The dataset contains the following columns:
-Subject: The identifier of the subject who performed the activity.
-Activity: The activity label (e.g., WALKING, STANDING).
-Columns corresponding to the mean and standard deviation measurements for each feature.
+### Acknowledgments and Licensing
 
+This dataset was developed by Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra, and Jorge L. Reyes-Ortiz. The dataset is available under the following reference for any publications:
 
+- **Reference**: Anguita, D., Ghio, A., Oneto, L., Parra, X., & Reyes-Ortiz, J. L. (2012). Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain.
+
+The dataset is distributed without any guarantees, and the authors are not responsible for any misuse. Commercial use of this dataset is prohibited.
+
+### Repository Structure
+
+Your GitHub repository must include:
+- The script `run_analysis.R`.
+- The output tidy dataset as a `.txt` file.
+- A `README.md` explaining the analysis workflow and the code's functionality.
